@@ -1,0 +1,353 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed:wght@400;700&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+--Red: hsl(0, 100%, 68%);
+--Very-Dark-Blue: hsl(230, 29%, 20%);
+--Dark-Grayish-Blue: hsl(230, 11%, 40%);
+--Grayish-Blue: hsl(231, 7%, 65%);
+--Light-Grayish-Blue: hsl(207, 33%, 95%);
+}
+
+body{
+    font-family: 'Barlow', sans-serif;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+button{
+    outline: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+
+body{
+    overflow-x: hidden;
+    position: relative;
+}
+
+body:after{
+    content:  "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50vw;
+    height: 50vh;
+    background: var(--Light-Grayish-Blue);
+    border-radius: 0 0 0 50px;
+    z-index: -1;
+}
+
+/* CONTAINER */
+
+.container{
+    margin-top: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 10%;
+}
+
+
+
+/* =========================================NAVBAR================================= */
+
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-transform: uppercase;
+    padding-top: 4rem;
+    padding-inline: 10%;
+}
+
+.navbar a{
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: .3s;
+}
+
+.navbar a:hover{
+    text-decoration: underline;
+}
+
+.nav-links{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+.nav-links.mobile{
+    display: none;
+}
+
+.login-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+.dot{
+    display: block;
+    width: 5px;
+    height: 5px;
+    background: var(--Grayish-Blue);
+    border-radius: 50%;
+}
+
+.login-link{
+    color: var(--Grayish-Blue);
+}
+
+
+
+.link{
+    color: var(--Very-Dark-Blue);
+}
+
+.mobile-icons{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    display: none;
+}
+
+.icon{
+    position: relative;
+    cursor: pointer;
+    width: 33px;
+    height: 4px;
+    border-radius: 1rem;
+    background: #000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.icon.active{
+    background: transparent;
+}
+
+.icon::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 8px;
+    height: 4px;
+    width: 33px;
+    background: #000;
+    border-radius: 1rem;
+    transition: .5s;
+}
+
+.icon::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    height: 4px;
+    width: 33px;
+    background: #000;
+    border-radius: 1rem;
+    transition: .5s;
+}
+
+.icon.active.icon::before{
+    transform: rotate(765deg);
+    bottom: 0;
+}
+
+.icon.active.icon::after{
+    transform: rotate(-45deg);
+    bottom: 0;
+}
+
+
+
+/* =======================================LEFT SIDE===================================== */
+.left-side{
+    width: 100%;
+}
+
+.subtitle{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-transform: uppercase;
+    font-size: 1rem;
+
+}
+
+.new{
+    text-transform: uppercase;
+    background: var(--Very-Dark-Blue);
+    color: #fff;
+    padding: .1rem .5rem .2rem;
+    border-radius: 1rem;
+    letter-spacing: 1.5px;
+}
+
+.md{
+    letter-spacing: 5px;
+    color: var(--Grayish-Blue);
+}
+
+.title{
+    margin-top: 1.5rem;
+    text-transform: uppercase;
+    font-size: 4.1rem;
+    line-height: 65px;
+    color: var(--Very-Dark-Blue);
+}
+
+.info{
+    margin-top: 2.5rem;
+    font-size: 1.45rem;
+    color: var(--Dark-Grayish-Blue);
+}
+
+.more-info-wrapper{
+    display: flex;
+    align-items: center;
+    margin-top: 5rem;
+    text-transform: uppercase;
+    font-size: 1rem;
+    gap: 1rem;
+    color: var(--Grayish-Blue);
+    letter-spacing: 5px;
+}
+
+.schedule-demo-btn{
+    text-transform: uppercase;
+    font-size: .9rem;
+    font-weight: bold;
+    color: #fff;
+    background: var(--Red);
+    padding: 1rem 1.5rem;
+    letter-spacing: 1px;
+    border-radius: .3rem;
+    transition: .3s;
+}
+
+.schedule-demo-btn:hover{
+    opacity: .7;
+}
+
+
+/* =======================================RIGHT SIDE===================================== */
+
+.right-side{
+    width: 48%;
+}
+
+/* ==============================RESPONSIVE FOR SMALLER SCREEN======================== */
+@media (max-width: 600px){
+
+    body::after{
+        height: 480px;
+    }
+    .container{
+        flex-direction: column-reverse;
+        align-items: flex-end;
+        margin-top: 3rem;
+        overflow: hidden;
+        padding-inline: 0;
+    }
+
+    .navbar{
+        padding-top: 2.5rem;
+    }
+
+    .left-side{
+        margin-top: 6rem;
+        padding-inline: 10%;
+    }
+
+    .title{
+        margin-top: 1rem;
+        font-size: 2.5rem;
+        line-height: 45px;
+    }
+
+    .right-side{
+        width: 100%;
+    }
+
+    .info{
+        margin-top: 1rem;
+    }
+
+    .more-info-wrapper{
+        margin-top: 2rem;
+    }
+
+    .schedule-demo-btn{
+        padding: 1rem 1.5rem;
+        font-size: .9rem;
+        letter-spacing: 0;
+    }
+
+    .see-preview{
+        font-size: .9rem;
+        letter-spacing: 1px;
+    }
+
+    .img{
+        width: 600px;
+    }
+
+    /* =====================MOBILE MENU & NAV========= */
+
+    .nav-links{
+        display: none;
+    }
+
+    .mobile-icons{
+        display: block;
+    }
+
+    .nav-links.mobile{
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 8rem;
+        background: #fff;
+        margin-inline: 6%;
+        padding: 2rem;
+        gap: 2rem;
+        font-size: 1.3rem;
+        box-shadow: 0 0 10px 0  rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-links.mobile.active{
+        display: flex;
+    }
+
+    .login-link{
+        border-top: 1px solid var(--Grayish-Blue);
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding-top: 1rem;
+    }
+
+}
